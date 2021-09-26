@@ -68,11 +68,11 @@
           <div class="col-12 col-sm-12 col-md-6 col-lg-6"> <!--columna izquierda-->
             
             <div class="mb-4">
-              <label class="form-label">Nombre</label>
-              <input type="text" class="form-control"  placeholder="Su/s nombre/s" formControlName="nombre">
-              <p *ngIf="nombre!.invalid && nombre!.touched" class="advertencia"
+              <label class="form-label">LinkedIn</label>
+              <input type="url" class="form-control"  placeholder="Su LinkedIn" formControlName="linkedin">
+              <p *ngIf="linkedin!.invalid && linkedin!.touched" class="advertencia"
                             style="color: rgb(136, 17, 37); font-style: italic; font-size: smaller;">
-                            Debe introducir un nombre válido. Sin números.</p>
+                            Debe introducir una URL de LinkedIn válida.</p>
             </div>
 
           </div>
@@ -80,20 +80,36 @@
           <div class="col-12 col-sm-12 col-md-6 col-lg-6"> <!--columna derecha-->
             
             <div class="mb-4">
-              <label class="form-label">Apellido</label>
-              <input type="text" class="form-control" placeholder="Su/s apellido/s" formControlName="apellido">
-              <p *ngIf="apellido!.invalid && apellido!.touched" class="advertencia"
+              <label class="form-label">Repositorio</label>
+              <input type="url" class="form-control" placeholder="Su/s apellido/s" formControlName="repositorio">
+              <p *ngIf="repositorio!.invalid && repositorio!.touched" class="advertencia"
                             style="color: rgb(136, 17, 37); font-style: italic; font-size: smaller;">
-                            Debe introducir un apellido válido. Sin números.</p>
+                            Debe introducir una URL de su Repositorio válida.</p>
             </div>
 
           </div>
 
         </div>
 
+        <div class="row  ">            
+            
+          <div class="col-12 col-sm-12 col-md-12 col-lg-12"> <!--columna izquierda-->
+
+            <div class="mb-4">
+              <label for="Textarea" class="form-label" placeholder="Ingrese una breve descripción">Breve Descripción</label>
+              <textarea class="form-control" id="Textarea" formControlName="textarea" rows="3"></textarea>
+              <p *ngIf="textarea!.invalid && textarea!.touched" class="advertencia"
+                            style="color: rgb(136, 17, 37); font-style: italic; font-size: smaller;">
+                            Debe introducir una breve descripción. Minimo 20 caracteres.</p>
+            </div>            
+           
+          </div> 
+
+        </div>
+
         <button type="submit" class=" button mb-4 gradiente-btn btn btn-primary rounded-pill box-sombra col-12 col-sm-12 col-lg-12 col-xl-12 mb-auto btn btn-primary">Ingresar</button>
         <div class=" breadcrumb2 text-center px-lg-5 pt-lg-3 pb-lg-4 p-4 "> 
-            <li><a routerLink="RecoveryPasswordComponent" routerLinkActive="link-activo" [routerLinkActiveOptions]="
+            <li><a routerLink="" routerLinkActive="link-activo" [routerLinkActiveOptions]="
           {exact: true}">Iniciar Sesión</a></li>
         </div>
         <div class=" breadcrumb2 text-center px-lg-5 pt-lg-3 pb-lg-4 p-4 "> 
