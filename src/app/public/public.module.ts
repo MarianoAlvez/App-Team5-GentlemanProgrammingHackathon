@@ -3,23 +3,11 @@ import { CommonModule } from '@angular/common';
 import { RegistrationComponent } from './registration/registration.component';
 import { LoginComponent } from './login/login.component';
 
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { BrowserModule } from '@angular/platform-browser';
-import { RouterModule } from '@angular/router';
-
+import { ReactiveFormsModule } from '@angular/forms';
+import { PublicRoutingModule } from './public.routing.module';
 
 @NgModule({
-  declarations: [
-    LoginComponent,
-    RegistrationComponent,
-  ],
-  imports: [
-    BrowserModule,
-    CommonModule,
-    ReactiveFormsModule,
-    RouterModule,
-    FormsModule
-
-  ]
+  declarations: [LoginComponent, RegistrationComponent],
+  imports: [CommonModule, ReactiveFormsModule, PublicRoutingModule],
 })
-export class PublicModule { }
+export class PublicModule {}
