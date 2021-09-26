@@ -1,0 +1,127 @@
+
+<html lang="es-ES" class="no-js">
+
+  <head>
+    <meta charset="utf-8">
+  </head>
+  <body class="bodyFondo" >
+
+  <section id="mycontainer" class="container-fluid containerFondo posicionContainer">
+ <form>
+        <section class="row">
+          <div class="col-md-6"><!-- inicio col 1-->
+              <h1><label>LISTADO BOOTCAMP</label></h1>
+          </div>
+        </section>
+        <section class="row">
+          <div class="col-md-10 textoTituloIzq"><!-- inicio col 1-->
+               <label>Empresita S.A</label>
+          </div>
+        </section>
+        <br>
+        <button class="btn botonF" (click)="btnNuevo()">Nuevo Bootcamp</button>
+   <!--
+
+        <table class="table tablaFondo">
+          <thead>
+            <tr>
+              <th>TITULO</th>
+              <th>FECHA</th>
+              <th>DIRIGIDO A</th>
+              <th></th>
+            </tr>
+          </thead>
+        <tbody>
+          <tr>
+            <td>Angula</td>
+            <td>25/09/2021</td>
+            <td>
+              <ul>
+                <li>Programador</li>
+                <li>Jefe de Proyecto</li>
+              </ul>
+
+            </td>
+            <td>
+             <button class="btn btn-primary">Editar</button>
+             <button class="btn btn-primary">Eliminar</button>
+            </td>
+          </tr>
+          <tr>
+            <td>React</td>
+            <td>26/09/2021</td>
+            <td>
+              <ul>
+                <li>Programador</li>
+                <li>Otros</li>
+              </ul>
+
+            </td>
+            <td>
+             <button class="btn btn-primary">Editar</button>
+             <button class="btn btn-primary">Eliminar</button>
+            </td>
+          </tr>
+        </tbody>
+       </table>
+
+
+    -->
+
+   <div class="mat-elevation-z8 gridEspacio">
+  <table mat-table [dataSource]="dataSource" >
+
+    <!-- Position Column -->
+    <ng-container matColumnDef="position">
+      <th mat-header-cell *matHeaderCellDef [style.display]="'none'"> No. </th>
+      <td mat-cell *matCellDef="let element" [style.display]="'none'"> {{element.position}} </td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="titulo">
+      <th mat-header-cell *matHeaderCellDef class="celdaEspacioPadd"> Titulo </th>
+      <td mat-cell *matCellDef="let element" class="celdaEspacioPadd"> {{element.titulo}} </td>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="descripcion">
+      <th mat-header-cell *matHeaderCellDef> descripcion </th>
+      <td mat-cell *matCellDef="let element"> {{element.descripcion}} </td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="fecha">
+      <th mat-header-cell *matHeaderCellDef> fechaEntrada </th>
+      <td mat-cell *matCellDef="let element"> {{element.fecha}} </td>
+    </ng-container>
+
+   <!-- button Column -->
+    <ng-container matColumnDef="actions">
+    <th mat-header-cell  *matHeaderCellDef class="celdaAncho"> Actions </th>
+    <td mat-cell *matCellDef="let row" class="celdaAncho">
+        <button mat-button (click)="btnEditar(row.position)" class="btn botonF">Editar</button>
+        <button mat-button (click)="btnEliminar(row.position)" class="btn botonF">Eliminar</button>
+    </td>
+   </ng-container>
+
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+  <mat-paginator [pageSizeOptions]="[5, 10, 20]"
+                 showFirstLastButtons
+                 aria-label="Select page of periodic elements">
+  </mat-paginator>
+</div>
+
+
+</form>
+</section> <!-- fin container -->
+
+
+
+  </body>
+</html>
+
+
