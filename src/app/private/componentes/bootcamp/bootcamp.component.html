@@ -1,0 +1,21 @@
+<html lang="es-ES" class="no-js">
+
+  <head>
+    <meta charset="utf-8">
+  </head>
+  <body class="bodyFondo" >
+
+<div class="d-flex fondoBody" id="wrapper">
+
+            <div id="page-content-wrapper">
+
+                <div class="container-fluid">
+
+                    <app-bootcamp-list *ngIf="mostrarListBootcamp" (mostarlistado)="onMostrarListado($event)"></app-bootcamp-list>
+                    <app-bootcamp-mant *ngIf="mostrarMantBootcamp" (mostarlistado)="onMostrarListado($event)"></app-bootcamp-mant>
+                </div>
+            </div>
+</div>
+</body>
+</html>
+

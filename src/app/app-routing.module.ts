@@ -1,15 +1,21 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LoginComponent } from './shared/login/login.component';
-import { RegistrationComponent } from './shared/registration/registration.component';
 
 const routes: Routes = [
-{ path: '', component: LoginComponent  },
-{ path: 'registro', component: RegistrationComponent },
+  {
+    path: '',
+    loadChildren: () =>
+      import('./public/public.module').then((m) => m.PublicModule),
+
+  },{
+    path: 'bootcamp',
+    loadChildren: () =>
+      import('./private/private.module').then((m) => m.PrivateModule),
+  }
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

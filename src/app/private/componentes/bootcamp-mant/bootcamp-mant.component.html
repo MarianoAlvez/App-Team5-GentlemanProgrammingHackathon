@@ -1,0 +1,132 @@
+<html lang="es-ES" class="no-js">
+
+  <head>
+    <meta charset="utf-8">
+  </head>
+  <body class="bodyFondo" >
+  <div class="bodyFondo"> sadad</div>
+  <section id="mycontainer" class="container-fluid containerFondo posicionContainer">
+ <form [formGroup]="formularioBoot">
+        <section class="row">
+          <div class="col-md-2"><!-- inicio col 1-->
+              <h1><label>BOOTCAMP</label></h1>
+          </div>
+        </section>
+        <section class="row">
+          <div class="col-md-10 textoTituloIzq"><!-- inicio col 1-->
+               <label>Empresita S.A</label>
+          </div>
+        </section>
+       <div class="row"><!-- inicio row 1-->
+          <div class="col-md-2 textoSubTitulo"><!-- inicio col 1-->
+              <label>Fecha:</label>
+          </div><!-- fin col 1-->
+          <div class="col-md-3 espaciadoRow"><!-- inicio col 2-->
+            <input type="date" class="form-control"  formControlName="fechaEntrada" />
+             <div class="errorValidador"
+              *ngIf="formularioBoot.controls.fechaEntrada.errors?.required &&
+              formularioBoot.controls.fechaEntrada.touched">
+              Seleccione la fecha</div>
+          </div><!-- fin col 2-->
+
+      </div><!-- fin row 1-->
+
+    <div class="row"><!-- inicio row 3-->
+      <div class="col-md-2 textoSubTitulo"><!-- inicio col 1-->
+           <label>Título:</label>
+      </div><!-- fin col 1-->
+      <div class="col-md-4 espaciadoRow"><!-- inicio col 2-->
+            <input type="text" class="form-control"  formControlName="titulo" />
+            <div class="errorValidador"
+                            *ngIf="formularioBoot.controls.titulo.errors?.required &&
+                             formularioBoot.controls.titulo.touched">
+                             El campo título es requerido</div>
+      </div><!-- fin col 2-->
+
+    </div><!-- fin row 3-->
+
+
+    <div class="row"><!-- inicio row 2-->
+      <div class="col-md-2 textoSubTitulo"><!-- inicio col 1-->
+           <label>Descripción:</label>
+      </div><!-- fin col 1-->
+      <div class="col-md-8 espaciadoRow"><!-- inicio col 2-->
+          <textarea class="form-control" rows=5 formControlName="txtDescripcion"></textarea>
+          <div class="errorValidador"
+                            *ngIf="formularioBoot.controls.txtDescripcion.errors?.required &&
+                             formularioBoot.controls.txtDescripcion.touched">
+                             El campo descripción es requerido</div>
+      </div><!-- fin col 2-->
+    </div><!-- fin row 2-->
+
+     <div class="row"><!-- inicio row 3-->
+      <div class="col-md-2 textoSubTitulo"><!-- inicio col 1-->
+           <label>Dirigida a:</label>
+      </div><!-- fin col 1-->
+      <div class="col-md-4 espaciadoRow"><!-- inicio col 2-->
+      <div class="form-check">
+       <input class="form-check-input" type="checkbox" formControlName="chkProgramador" value="Programador" id="chkProgramador">
+          <label class="form-check-label textoCheck" for="chkProgramador">
+           Programador
+          </label>
+        </div>
+       <div class="form-check">
+       <input class="form-check-input" type="checkbox" value="Analista" formControlName="chkAnalista" id="chkAnalista">
+         <label class="form-check-label textoCheck" for="chkAnalista">
+           Analista
+          </label>
+       </div>
+       <div class="form-check">
+       <input class="form-check-input" type="checkbox" value="Analista de Pruebas" formControlName="chkPruebas" id="chkPruebas">
+          <label class="form-check-label textoCheck" for="chkPruebas">
+           Analista de Pruebas
+          </label>
+        </div>
+        <div class="form-check">
+       <input class="form-check-input" type="checkbox" value="Jefe de Proyectos" formControlName="chkJefe" id="chkJefe">
+          <label class="form-check-label textoCheck" for="chkJefe">
+          Jefe de Proyectos
+          </label>
+        </div>
+        <div class="form-check">
+       <input class="form-check-input" type="checkbox" value="Ingenieros" formControlName="chkIng" id="chkIng">
+          <label class="form-check-label textoCheck" for="chkIng">
+          Ingenieros
+          </label>
+         </div>
+        <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="Otros" formControlName="chkOtros" id="chkOtros">
+           <label class="form-check-label textoCheck" for="chkOtros">
+          Otros
+          </label>
+          </div>
+      </div><!-- fin col 2-->
+
+    </div><!-- fin row 3-->
+
+
+
+
+    <!--<div *ngIf="mostrarMensaje" class="alert alert-info" role="alert">
+           <ul>
+            <li *ngFor="let error of listaError; let i = index">{{error}}</li>
+          </ul>
+     </div>-->
+       <div class="row "><!-- inicio row 4-->
+      <div class="col-md-6 botonCentradoIzq"><!-- inicio col 2-->
+           <button (click)="btnAgregar()" class="btn botonF">Grabar</button>
+      </div><!-- fin col 1-->
+      <div class="col-md-6 botonCentradoDer"><!-- inicio col 2-->
+           <button (click)="btnCancelar()"class="btn botonF">Cancelar</button>
+      </div><!-- fin col 2-->
+    </div><!-- fin row 4-->
+
+
+</form>
+</section> <!-- fin container -->
+
+
+
+  </body>
+</html>
+
