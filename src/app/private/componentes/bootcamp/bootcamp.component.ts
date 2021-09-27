@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-bootcamp',
@@ -10,13 +11,18 @@ export class BootcampComponent implements OnInit {
   mostrarMantBootcamp:boolean=false;
   mostrarListBootcamp:boolean=true;
 
+
   constructor() {
 
   }
 
   ngOnInit(): void {
 
+
   }
+
+
+
 
 
 

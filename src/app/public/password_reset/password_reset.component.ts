@@ -8,17 +8,16 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 })
 export class Password_resetComponent implements OnInit {
 
-  recuperar = new FormGroup({
-    recuperarContrasena: new FormControl('', [Validators.required, Validators.email])
+  recuperarContrasena = new FormGroup({
+    email: new FormControl('', [Validators.required, Validators.email]),    
   })
-  
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  get recuperarContrasena() {
-    return this.recuperar.get('recuperarContrasena')
+  get email() {
+    return this.recuperarContrasena.get('email')
   }
-
 }

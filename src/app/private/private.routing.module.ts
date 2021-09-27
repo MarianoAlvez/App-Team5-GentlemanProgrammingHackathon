@@ -5,9 +5,9 @@ import { BootcampListComponent } from './componentes/bootcamp-list/bootcamp-list
 import { BootcampMantComponent } from './componentes/bootcamp-mant/bootcamp-mant.component';
 
 const routes: Routes = [
-   {path:'',pathMatch:'full',redirectTo:'bootcamp'},
-  { path: 'bootcamp', component: BootcampComponent },
-  { path: 'lista', component: BootcampListComponent },
+  {path:'',pathMatch:'full',redirectTo:'bootcamp'},
+  { path: 'bootcamp', component: BootcampComponent }
+  //{ path: 'lista', component: BootcampListComponent },
 ];
 
 @NgModule({

@@ -37,6 +37,7 @@
       </div><!-- fin col 1-->
       <div class="col-md-4 espaciadoRow"><!-- inicio col 2-->
             <input type="text" class="form-control"  formControlName="titulo" />
+            <!--{{formularioBoot.get('titulo')?.value}}-->
             <div class="errorValidador"
                             *ngIf="formularioBoot.controls.titulo.errors?.required &&
                              formularioBoot.controls.titulo.touched">
@@ -107,11 +108,9 @@
 
 
 
-    <!--<div *ngIf="mostrarMensaje" class="alert alert-info" role="alert">
-           <ul>
-            <li *ngFor="let error of listaError; let i = index">{{error}}</li>
-          </ul>
-     </div>-->
+     <div  class="alert alert-info" role="alert">
+           {{mensajeRetorno}}}
+     </div>
        <div class="row "><!-- inicio row 4-->
       <div class="col-md-6 botonCentradoIzq"><!-- inicio col 2-->
            <button (click)="btnAgregar()" class="btn botonF">Grabar</button>
