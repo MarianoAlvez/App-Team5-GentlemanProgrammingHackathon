@@ -27,7 +27,7 @@
     
         <div class="col-lg-5 d-flex flex-column">
             <div class="px-lg-5 py-lg-4 p-4 w-100 aling-self-center">
-                <h1 class="font-weight-bold mb-4">Ingresá a MyApp</h1>
+                <h1 class="font-weight-bold mb-4 d-flex justify-content-center">Ingresá a CONTACT</h1>
                 <form [formGroup] = "login">
                     <div class="mb-4">
                       <label class="form-label font-weight-bold">Email</label>
@@ -47,13 +47,11 @@
     
                     <button type="submit" class=" button mb-4 gradiente-btn btn rounded-pill box-sombra w-100" routerLink="#home">Ingresar</button>
                     
-                    <div class=" breadcrumb2 text-center px-lg-5 pt-lg-3 pb-lg-4 p-4 "> 
-                        <li><a routerLink="registro" routerLinkActive="link-activo" [routerLinkActiveOptions]="
-                      {exact: true}">Registrate</a></li>
+                    <div class=" breadcrumb2 text-center px-lg-5 pt-lg-3 pb-lg-4 p-4 ">
+                      <li><a [routerLink]="[ '/registro']">Registrate</a></li>                        
                     </div>
                     <div class=" breadcrumb2 text-center px-lg-5 pt-lg-3 pb-lg-4 p-4 "> 
-                        <li><a routerLink="recuperar" routerLinkActive="link-activo" [routerLinkActiveOptions]="
-                      {exact: true}">¿Olvidaste tu contraseña?</a></li>
+                      <li><a [routerLink]="[ '/recuperar']">¿Olvidaste tu contraseña?</a></li>                        
                     </div>
                     
                 </form> 

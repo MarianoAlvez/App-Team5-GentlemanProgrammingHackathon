@@ -3,12 +3,13 @@
 <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;1,500&family=Spartan:wght@300;600&display=swap" rel="stylesheet">
 
 
-<body class="container d-flex">
-  <div class="row justify-content-center alig-items-center">
+<body class="container d-flex justify-content-center alig-items-center ">
+  <div class="row">
   
-      <h1 class="font-weight-bold mb-4 text-center">Cree una cuenta en MyApp</h1>
+      <h1 class="font-weight-bold mb-4 font-weight-bold mb-4 d-flex justify-content-center"> CONTACT</h1>
+      <h2 class="font-weight-bold mb-4 font-weight-bold mb-4 d-flex justify-content-center">Cree una cuenta</h2>
       <form class="" [formGroup]="registro">
-        <div class="row">
+        <div class="row ">
             
             <div class="col-12 col-sm-12 col-md-6 col-lg-6"> <!--columna izquierda-->              
               <div class="mb-4">
@@ -123,13 +124,11 @@
 
         <button type="submit" class=" button mb-4 gradiente-btn btn btn-primary rounded-pill box-sombra col-12 col-sm-12 col-lg-12 col-xl-12 mb-auto btn btn-primary">Ingresar</button>
         <div class=" breadcrumb2 text-center px-lg-5 pt-lg-3 pb-lg-4 p-4 "> 
-            <li><a routerLink="" routerLinkActive="link-activo" [routerLinkActiveOptions]="
-          {exact: true}">Iniciar Sesión</a></li>
+          <li><a [routerLink]="[ '/']">Iniciar Sesión</a></li>           
         </div>
-        <div class=" breadcrumb2 text-center px-lg-5 pt-lg-3 pb-lg-4 p-4 "> 
-          <li><a routerLink="recuperar" routerLinkActive="link-activo" [routerLinkActiveOptions]="
-        {exact: true}">¿Olvidaste tu contraseña?</a></li>
-      </div>
+        <div class=" breadcrumb2 text-center px-lg-5 pt-lg-3 pb-lg-4 p-4 ">
+          <li><a [routerLink]="[ '/recuperar']">¿Olvidaste tu contraseña?</a></li>         
+        </div>
     </form>
    </div>   
 </body>
