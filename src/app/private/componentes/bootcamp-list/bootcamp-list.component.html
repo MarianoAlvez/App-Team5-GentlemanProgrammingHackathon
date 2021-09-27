@@ -8,6 +8,7 @@
 
   <section id="mycontainer" class="container-fluid containerFondo posicionContainer">
  <form>
+
         <section class="row">
           <div class="col-md-6"><!-- inicio col 1-->
               <h1><label>LISTADO BOOTCAMP</label></h1>
@@ -72,50 +73,48 @@
   <table mat-table [dataSource]="dataSource" >
 
     <!-- Position Column -->
-    <ng-container matColumnDef="position">
+    <ng-container matColumnDef="_id">
       <th mat-header-cell *matHeaderCellDef [style.display]="'none'"> No. </th>
-      <td mat-cell *matCellDef="let element" [style.display]="'none'"> {{element.position}} </td>
+      <td mat-cell *matCellDef="let element" [style.display]="'none'"> {{element._id}} </td>
     </ng-container>
 
     <!-- Name Column -->
-    <ng-container matColumnDef="titulo">
-      <th mat-header-cell *matHeaderCellDef class="celdaEspacioPadd"> Titulo </th>
+    <ng-container matColumnDef="Titulo">
+      <th mat-header-cell *matHeaderCellDef class="celdaEspacioPadd gridEncabezado"> Titulo </th>
       <td mat-cell *matCellDef="let element" class="celdaEspacioPadd"> {{element.titulo}} </td>
     </ng-container>
 
     <!-- Weight Column -->
-    <ng-container matColumnDef="descripcion">
-      <th mat-header-cell *matHeaderCellDef> descripcion </th>
-      <td mat-cell *matCellDef="let element"> {{element.descripcion}} </td>
+    <ng-container matColumnDef="Fecha">
+      <th mat-header-cell *matHeaderCellDef class="gridEncabezado"> Fecha </th>
+      <td mat-cell *matCellDef="let element"> {{element.fecha | date:'dd/MM/yyyy'}} </td>
     </ng-container>
 
     <!-- Symbol Column -->
-    <ng-container matColumnDef="fecha">
-      <th mat-header-cell *matHeaderCellDef> fechaEntrada </th>
-      <td mat-cell *matCellDef="let element"> {{element.fecha}} </td>
+    <ng-container matColumnDef="Descripcion">
+      <th mat-header-cell *matHeaderCellDef class="gridEncabezado"> Descripcion </th>
+      <td mat-cell *matCellDef="let element"> {{element.descripcion}} </td>
     </ng-container>
-
-   <!-- button Column -->
-    <ng-container matColumnDef="actions">
-    <th mat-header-cell  *matHeaderCellDef class="celdaAncho"> Actions </th>
+    <!-- button Column -->
+    <ng-container matColumnDef="Acciones">
+    <th mat-header-cell  *matHeaderCellDef class="celdaAncho gridEncabezado"> Acciones </th>
     <td mat-cell *matCellDef="let row" class="celdaAncho">
-        <button mat-button (click)="btnEditar(row.position)" class="btn botonF">Editar</button>
-        <button mat-button (click)="btnEliminar(row.position)" class="btn botonF">Eliminar</button>
+        <button mat-button (click)="btnEditar(row._id)" class="btn botonF">Editar</button>
+        <button mat-button (click)="btnEliminar(row._id)" class="btn botonF">Eliminar</button>
     </td>
    </ng-container>
-
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
 
-  <mat-paginator [pageSizeOptions]="[5, 10, 20]"
-                 showFirstLastButtons
-                 aria-label="Select page of periodic elements">
-  </mat-paginator>
+
 </div>
 
-
+<!-- <mat-paginator [pageSizeOptions]="[5, 10, 20]"
+                 showFirstLastButtons
+                 aria-label="Select page of periodic elements">
+  </mat-paginator>-->
 </form>
 </section> <!-- fin container -->
 
