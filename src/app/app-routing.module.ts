@@ -7,11 +7,20 @@ const routes: Routes = [
     loadChildren: () =>
       import('./public/public.module').then((m) => m.PublicModule),
 
-  },{
+  },
+  
+  {
     path: 'bootcamp',
     loadChildren: () =>
       import('./private/private.module').then((m) => m.PrivateModule),
+  },
+
+  {
+    path: '',
+    loadChildren: () =>
+      import('./shared/shared.module').then((m) => m.SharedModule),
   }
+
 ];
 
 @NgModule({
