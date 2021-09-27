@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormControl, Validators, NgModel } from '@angular/forms';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-login',
@@ -13,7 +15,7 @@ export class LoginComponent implements OnInit {
     contrasena: new FormControl('', [Validators.required, Validators.minLength(5)])
   })
 
-  constructor() { }
+  constructor(private router:Router) { }
 
   ngOnInit(): void {
   }
@@ -24,5 +26,8 @@ export class LoginComponent implements OnInit {
   get contrasena() {
     return this.login.get('contrasena')
   }
+  onLogin(){
 
+    this.router.navigate(['/bootcamp']);
+  }
 }

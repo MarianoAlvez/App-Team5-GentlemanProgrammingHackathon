@@ -2,6 +2,10 @@ import { Component, OnInit,AfterViewInit, ViewChild,Output,EventEmitter} from '@
 import {MatPaginator} from '@angular/material/paginator';
 import {MatTableDataSource} from '@angular/material/table';
 import {MatButtonModule} from '@angular/material/button';
+import { BootcampService } from '../../servicios/bootcamp.service';
+import {Bootcamp} from '../../modelo/bootcamp';
+import { InformacionService } from '../../servicios/informacion.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-bootcamp-list',
@@ -12,21 +16,40 @@ export class BootcampListComponent implements AfterViewInit,OnInit {
 
   @Output() mostarlistado = new EventEmitter<boolean>();
 
-  displayedColumns: string[] = ['position', 'titulo', 'descripcion', 'fecha','actions'];
-  dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
+  __id:string="0";
+  //private data$:Observable<string>;
+  displayedColumns: string[] = ['_id','Titulo', 'Descripcion', 'Fecha', 'Acciones'];
+  dataSource = new MatTableDataSource<Bootcamp>([]);
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
+  constructor(private servicio: BootcampService,
+             private informacion: InformacionService) {
+
+
+  }
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
   }
 
   ngOnInit(): void {
-
+   this.mostrarlistado();
   }
 
-  btnEditar(event:any){
-   console.log(event);
+  mostrarlistado(){
+
+    this.servicio.listarBootcamp()
+      .then(data=> this.dataSource=new MatTableDataSource<Bootcamp>(data))
+      //..then(arrPlanesPrecio=>this.planesPrecios=data)
+      .catch(error=>console.log(error));
+  }
+
+  btnEditar(_id:string){
+   console.log(_id);
+   this.informacion.sharingObservableData=_id;
+   this.mostarlistado.emit(false);
+    //this.informacion.disparadorInformacion.emit(_id)
+
   }
 
   btnEliminar(event:any){
@@ -37,33 +60,5 @@ export class BootcampListComponent implements AfterViewInit,OnInit {
   }
 }
 
-export interface PeriodicElement {
 
-  position: number;
-  titulo: string;
-  descripcion: string;
-  fecha: string;
-}
 
-const ELEMENT_DATA: PeriodicElement[] = [
-  {position: 1, titulo: 'Angula', descripcion: 'des asdjaksdlad 1', fecha: '26/09/2021'},
-  {position: 2, titulo: '.NET', descripcion: 'des asdjaksdlad 1', fecha: '26/09/2021'},
-  {position: 3, titulo: 'Javascript', descripcion: 'des asdjaksdlad 1', fecha: '26/09/2021'},
-  {position: 4, titulo: 'PHP', descripcion: 'des asdjaksdlad 1', fecha: '26/09/2021'},
-  {position: 5, titulo: 'React', descripcion: 'des asdjaksdlad 1', fecha: '26/09/2021'},
-  {position: 6, titulo: 'Vue', descripcion: 'des asdjaksdlad 1', fecha: '26/09/2021'},
-  {position: 7, titulo: 'C#', descripcion: 'des asdjaksdlad 1', fecha: '26/09/2021'},
-  {position: 8, titulo: 'C+', descripcion: 'des asdjaksdlad 1', fecha: '26/09/2021'},
-  {position: 9, titulo: 'PowerBi', descripcion: 'des asdjaksdlad 1', fecha: '26/09/2021'},
-  {position: 10, titulo: 'SQL', descripcion: 'des asdjaksdlad 1', fecha: '26/09/2021'},
-  {position: 11, titulo: 'ORACLE', descripcion: 'des asdjaksdlad 1', fecha: '26/09/2021'},
-  {position: 12, titulo: 'MariaDB', descripcion: 'des asdjaksdlad 1', fecha: '26/09/2021'},
-  {position: 13, titulo: 'Mysql', descripcion: 'des asdjaksdlad 1', fecha: '26/09/2021'},
-  {position: 14, titulo: 'Informix', descripcion: 'des asdjaksdlad 1', fecha: '26/09/2021'},
-  {position: 15, titulo: 'HTML', descripcion: 'des asdjaksdlad 1', fecha: '26/09/2021'},
-  {position: 16, titulo: 'CSS', descripcion: 'des asdjaksdlad 1', fecha: '26/09/2021'},
-  {position: 17, titulo: 'P1', descripcion: 'des asdjaksdlad 1', fecha: '26/09/2021'},
-  {position: 18, titulo: 'P2', descripcion: 'des asdjaksdlad 1', fecha: '26/09/2021'},
-  {position: 19, titulo: 'P3', descripcion: 'des asdjaksdlad 1', fecha: '26/09/2021'},
-  {position: 20, titulo: 'P4', descripcion: 'des asdjaksdlad 1', fecha: '26/09/2021'}
-];
